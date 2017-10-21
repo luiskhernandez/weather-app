@@ -4,6 +4,7 @@ module OpenWeatherMap
     base_uri ENV['OPEN_WEATHER_MAP_BASE_URL']
 
     def get_request(uri, options = {})
+      puts "+"*50
       perform_request do |opts|
         opts[:query].merge!(options)
         self.class.get(uri,opts)
