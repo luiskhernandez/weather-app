@@ -13,7 +13,7 @@ class WeatherController < ApplicationController
 
   private
    def load_city
-     params[:id] ? City.find(identifier: params[:id]) :  City.random
+     params[:id] ? City.find_by(identifier: params[:id]) :  City.random
    end
 
    def city
@@ -21,7 +21,11 @@ class WeatherController < ApplicationController
    end
 
    def load_weather
-     @weather = OpenWeatherMap::CurrentWeather.by_city(id: city.identifier)
+     @weather ||= Rails.cache.fetch(city.identifier, expires: 12.hours) do
+       result = OpenWeatherMap::CurrentWeather.by_city(id: city.identifier)
+       Rails.cache.write(city.identifier,result)
+       result
+     end
    end
 
    def record_not_found
