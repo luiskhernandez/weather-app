@@ -25,11 +25,15 @@ group :development, :test do
   gem 'rspec-rails'
   gem "dotenv-rails"
   gem 'pry'
+  gem 'factory_bot_rails'
 end
 
 group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'webmock'
+  gem 'ffaker'
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
 end
 
 group :development do
