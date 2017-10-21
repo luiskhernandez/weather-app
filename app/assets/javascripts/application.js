@@ -11,5 +11,30 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require_tree .
+//
+$(function(){
+  var cities = $('.js-cities')
+  cities.select2({
+    placeholder: 'Select a city',
+    ajax: {
+      url: "/cities",
+      dataType: 'json',
+      data: function (params) {
+        return {
+          q: params.term, //params send to companies controller
+        };
+      },
+      processResults: function (data) {
+        return {
+          results: data.results
+        };
+      },
+      cache: true
+    }
+  });
+  cities.on("change", function(e) { 
+    // what you would like to happen
+    window.location.href = "/weather/"+cities.val()
+  });
+})

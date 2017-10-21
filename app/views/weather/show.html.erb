@@ -1,42 +1,45 @@
 <div class="container">
-	<div class="row">
-		<div class="col">
+  <div class="row">
+  </div>
+  <div class="row">
+    <div class="col">
       <% decorate(@weather, WeatherDecorator) do |decorated| %>
-			<div class="weather-card one">
-				<div class="top">
-					<div class="wrapper">
-						<div class="mynav">
-							<a href="javascript:;"><span class="lnr lnr-cog"></span></a>
-						</div>
-            <h1 class="heading"><%= decorated.city_name %></h1>
-            <h3 class="location"><%= decorated.description %></h3>
-						<p class="temp">
-              <span class="temp-value"> <%= decorated.temperature %></span>
-							<span class="deg">0</span>
-							<a href="javascript:;"><span class="temp-type">C</span></a>
-						</p>
-					</div>
-				</div>
-				<div class="bottom">
-					<div class="wrapper">
-						<ul class="forecast">
-							<li class="active">
-								<span class="date">Wind speed</span>
-								<span class="lnr condition">
-                  <span class="temp"><%= decorated.wind %><span class="deg">m/s</span>
-								</span>
-							</li>
-							<li class="active">
-								<span class="date">Wind direction</span>
-								<span class="lnr condition">
-                  <span class="temp"><%= decorated.wind_direction %><span class="deg">0</span>
-								</span>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-    <% end %>
-		</div>
-	</div>
+        <div class="weather-card one">
+          <%= render partial: "search_form" %>
+          <div class="top">
+            <div class="wrapper">
+              <div class="mynav">
+                <a href="javascript:;"><span class="lnr lnr-cog"></span></a>
+              </div>
+              <h1 class="heading"><%= decorated.city_name %></h1>
+              <h3 class="location"><%= decorated.description %></h3>
+              <p class="temp">
+                <span class="temp-value"> <%= decorated.temperature %></span>
+                <span class="deg">0</span>
+                <a href="javascript:;"><span class="temp-type">C</span></a>
+              </p>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="wrapper">
+              <ul class="forecast">
+                <li class="active">
+                  <span class="date">Wind speed</span>
+                  <span class="lnr condition">
+                    <span class="temp"><%= decorated.wind %><span class="deg">m/s</span>
+                    </span>
+                </li>
+                <li class="active">
+                  <span class="date">Wind direction</span>
+                  <span class="lnr condition">
+                    <span class="temp"><%= decorated.wind_direction %><span class="deg">0</span>
+                    </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
