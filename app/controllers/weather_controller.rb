@@ -1,11 +1,14 @@
 class WeatherController < ApplicationController
   def index
-    load_city
-    @weather = OpenStruct.new(description: "", city: "")
+    load_weather
   end
 
   private
-   def load_city
+   def city
      @city ||= City.random
+   end
+
+   def load_weather
+     @weather = OpenWeatherMap::CurrentWeather.by_city(id: city.identifier)
    end
 end
