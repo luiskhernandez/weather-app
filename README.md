@@ -14,3 +14,5 @@ TODO LIST
 
 * Dockerize app
 
+* Add sentry or airbrake for better error tracking.
+
