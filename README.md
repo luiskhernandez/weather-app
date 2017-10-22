@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://openweather-app.herokuapp.com/ 
 
-Things you may want to cover:
+TODO LIST
 
-* Ruby version
+* Add simplecov and improve test coverage
 
-* System dependencies
+* Use Redis or memache for cache instead of rails defaults
 
-* Configuration
+* Create Weather service class that receive the API wrapper object, so we can support others provides.
 
-* Database creation
+* Refactor css into sass
 
-* Database initialization
+* Dockerize app
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
